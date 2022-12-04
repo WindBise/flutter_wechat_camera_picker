@@ -62,7 +62,6 @@ Widget _floatingCollapsed() {
         style: TextStyle(color: Colors.white),
       ),
     ),
-    width: 800,
   );
 }
 
