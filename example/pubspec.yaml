@@ -13,8 +13,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  wechat_camera_picker:
-    path: ../
+  wechat_camera_picker: ^3.7.0
   sliding_up_panel: ^2.0.0+1
 
 
