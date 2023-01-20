@@ -6,24 +6,28 @@ import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
+import '../widgets/CustomCameraPickerState.dart';
+import '../widgets/CustomCameraTextDelegate.dart';
+
 /// Provide common usages of the picker.
 /// 提供常见的选择器调用方式。
 List<PickMethod> get pickMethods {
   return <PickMethod>[
     PickMethod(
       icon: '⏳',
-      name: '右侧无响应、foregroundWidget宽度问题',
-      description: '右侧屏幕点击不展示曝光选择并且foregroundWidget宽度有问题',
+      name: 'release版本拍照按钮会消失',
+      description: 'debug版本不会消失 release版本拍照按钮会消失',
       method: (BuildContext context) => CameraPicker.pickFromCamera(
         context,
         pickerConfig: CameraPickerConfig(
-          cameraQuarterTurns: 1,
           foregroundBuilder: (b, c) => SlidingUpPanel(
             renderPanelSheet: false,
             panel: _floatingPanel(),
             collapsed: _floatingCollapsed(),
           ),
+          textDelegate: CustomCameraPickerTextDelegate(),
         ),
+        createPickerState: () => CustomCameraPickerState(),
       ),
     ),
     PickMethod(
